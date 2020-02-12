@@ -265,11 +265,11 @@ d3.csv("data/SleepData.csv", row, function(data) {
             barFlag = false;
         }
       });
-      svg.on('swipe', function(e, Dx, Dy){
-        var side = (Dx < 0) ? 'left' : (Dx > 0) ? 'right' : (Dy > 0) ? '↑' : (Dy < 0) ? '↓' : '?'; 
-        // $(this).html('<span>' + side + '</span>');
-        alert(side);
-      });
+    //   svg.on('swipe', function(e, Dx, Dy){
+    //     var side = (Dx < 0) ? 'left' : (Dx > 0) ? 'right' : (Dy > 0) ? '↑' : (Dy < 0) ? '↓' : '?'; 
+    //     // $(this).html('<span>' + side + '</span>');
+    //     alert(side);
+    //   });
 
 
     
@@ -438,20 +438,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
         bars.on("dblclick",function(d){  
             
         alert('do something')
-        //   svg.append('rect').transition().duration(500)
-        //   .attr('width', 150)
-        //   .attr('height', 100)
-        //   .attr('x', 40)
-        //   .attr('y', 100)
-        //   .style('fill', 'none')
-        //   .attr('stroke', 'black')
-        // text = svg.append('foreignObject')
-        //         .attr('x', 50)
-        //         .attr('y', 130)
-        //         .attr('width', 150)
-        //         .attr('height', 100)
-        //         .append("xhtml:body")
-        // .html('<div style="width: 150px;">This is some information about whatever</div>')
           //showInformation(bars,tooltip);
         });
 
