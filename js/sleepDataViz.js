@@ -257,6 +257,7 @@ d3.csv("data/SleepData.csv", row, function(data) {
     //     alert("Double tap!");
     //   });
     svg.dblTap(function() {
+        console.log('double tap activated');
         if(!barFlag){
             drawScatter(); 
             barFlag = true;
