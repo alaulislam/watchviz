@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+        <link href="https://fonts.googleapis.com/css?family=PT+Sans|PT+Serif|Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Great+Vibes&display=swap" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet" />
+		<meta charset="UTF-8">
+        <title>Info Viz</title>
+        <script src="plugin/jquery-3.4.1.min.js"></script>
+        <script src="plugin/d3.v4.min.js"></script>
+        <script src="plugin/jquery.touch.js"></script>
+        <link rel="icon" type="image/png" sizes="32x32" href="img/ms-icon-70x70.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+	</head>
+
+    <body>
+        <div class="watch-container">
+            <div class="watch-strap-top"></div>
+    
+            <div class="watch">
+                <div class="watch-face">
+                    <div id="container">
+                        <div id="svgCanvas" style="margin-top: 20px; margin-left: 15px;"></div>
+                        <div id="tooltipPosition" style="margin-top: -15px !important; "></div>
+                    </div>
+                    
+                    <!-- <div class="watch-face-outline">
+                        <div class="watch-face-outline-point point-12"></div>
+                        <div class="watch-face-outline-point point-1"></div>
+                        <div class="watch-face-outline-point point-2"></div>
+                        <div class="watch-face-outline-point point-3"></div>
+                        <div class="watch-face-outline-point point-4"></div>
+                        <div class="watch-face-outline-point point-5"></div>
+                        <div class="watch-face-outline-point point-6"></div>
+                        <div class="watch-face-outline-point point-7"></div>
+                        <div class="watch-face-outline-point point-8"></div>
+                        <div class="watch-face-outline-point point-9"></div>
+                        <div class="watch-face-outline-point point-10"></div>
+                        <div class="watch-face-outline-point point-11"></div>
+                    </div> -->
+    
+                    <!-- <div class="watch-face-date date"></div> -->
+    
+                    <div class="watch-face-centre">
+                        <div class="watch-face-centre-inner"></div>
+                    </div>
+    
+                    <div class="watch-face-hands">
+                        <div class="watch-face-hand hour"></div>
+                        <div class="watch-face-hand minute"></div>
+                        <div class="watch-face-hand second"></div>
+                    </div>
+                </div>
+    
+                <div class="watch-crown"></div>
+            </div>
+    
+            <div class="watch-strap-bottom">Info Vis 2020</div>
+        </div>
+		<!-- <div id="container">
+			
+			<div id="divButtons">
+				<button id="barSleepQty" value="SleepQty">Bar Chart</button>
+                <button id="scatter" value="scatter">Scatter Plot</button>
+                
+                <div id="svgCanvas" style="margin-top: 20px;"></div>
+			</div>
+			
+        </div> -->
+         <script src="js/sleepDataViz.js"></script>
+        <script src="js/watch-active.js"></script>
+    </body>
+    
+</html>
+
+
