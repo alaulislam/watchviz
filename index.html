@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-        <link href="css/style.css" rel="stylesheet" />
-		<meta charset="UTF-8">
         <title>Info Viz</title>
+        <link href="css/style.css" rel="stylesheet" />
+        <link href="css/montserrat-font-family-styles.css" rel="stylesheet" />
         <script src="plugin/jquery-3.4.1.min.js"></script>
         <script src="plugin/d3.v4.min.js"></script>
         <script src="plugin/jquery.touch.js"></script>
@@ -13,6 +12,7 @@
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
+        <meta charset="UTF-8">
 
 	</head>
 
@@ -20,10 +20,10 @@
         <div class="container-fluid">
             <div class="card text-center">
                 <div class="card-header bg-dark text-white">
-                    <p class="custom_header"> Selection technique for smartwatch graph visualization.</p>
+                    <p class="custom_header light" style="font-weight: bold;"> Selection technique for smartwatch graph visualization</p>
                 </div>
                 <div class="card-body" style="margin-top: -11px;">
-                  <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">Smartwatch Interaction</h5>
+                  <h5 class="card-title" ><span class="light">Smartwatch Interaction</span></h5>
                 </div>
               </div>
 
@@ -86,26 +86,19 @@
                   
                     <div class="card">
                         <div class="card-inner">
-                          <!-- <div class="header">
-                            <h2>Problem Statement</h2>
-                            <h3>Sub-Head</h2>
-                        </div> -->
+
                         <div class="content">
                           <p><span style="font-weight: bold;">What</span> the visualizations shows?</br>Here the bar charts display weekly sleep duration in hours on smartwatch screen.</p>
                           <p><span style="font-weight: bold;">Why</span> we should care about it?</br>While the performance and display quality of smartwatches keep improving, 
                             the size of the wearable imposes notable limits on the display and 
                             interaction possibilities with more complex content. 
-                            In my prototype I propose a selection technique where user can transform one visualization to another form for precise selection input.</p>
+                            In this prototype I propose a selection technique where user can transform one visualization to another form for precise selection input.</p>
                             <p><span style="font-weight: bold;">HOW?</span></br>The instructions of the selection process is described in the sticky notes above.</p>
                         </div>
                           </div>
                       </div>
                     <div class="card">
                         <div class="card-inner">
-                          <!-- <div class="header">
-                            <h2>Problem Statement</h2>
-                            <h3>Sub-Head</h2>
-                        </div> -->
                         <div class="content">
                           <p><span style="font-weight: bold;">Improvements:</span></br>Current data is simplified and constructed for easy implementation. Sleep data for 7 days is being visualized for testing purpose.
                           Same problem will be faced if we want to interact with more than 7 days data e.g monthly data. So, the Improvement can be sliding/hovering or even displaying the feedback in dynamic relative positions.
@@ -118,17 +111,6 @@
            
          
         </div>
-       
-		<!-- <div id="container">
-			
-			<div id="divButtons">
-				<button id="barSleepQty" value="SleepQty">Bar Chart</button>
-                <button id="scatter" value="scatter">Scatter Plot</button>
-                
-                <div id="svgCanvas" style="margin-top: 20px;"></div>
-			</div>
-			
-        </div> -->
          <script src="js/sleepDataViz.js"></script>
         <script src="js/watch-active.js"></script>
     </body>

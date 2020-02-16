@@ -1,6 +1,3 @@
-// var width = 1000,
-//     height = 450;
-
 $( document ).ready(function() {
     console.log('Activated!');
     d3.selection.prototype.dblTap = function(callback) {
@@ -90,11 +87,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
     var xAxisBar = d3.axisBottom(xScaleBar);
 
     var xAxisScatter = d3.axisBottom(xScaleBar); // No need xScaleScatter, because same weekdays name for both bar & scatter
-        // .ticks(5)
-        // .tickFormat(function(d, i) {
-        //     return i ? format(d) : null;
-        // })
-        // .tickSizeInner(-(height - paddingScatter[0] - paddingScatter[2]));
 
     var yAxis = d3.axisLeft(yScale)
         .tickValues([10, 300, 40, 300])
@@ -170,50 +162,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
         .style("stroke-dasharray", "6,6")
         .style("stroke", "#aaa");
 
-    // var verticalPath = scatterGroup.append("path")
-    //     .attr("d", "M" + paddingScatter[3] + "," + paddingScatter[0] + " L" +
-    //         (width - paddingScatter[1]) + "," + paddingScatter[0] + " L" +
-    //         paddingScatter[3] + "," + (height - paddingScatter[2]) + "Z")
-    //     .style("opacity", 0)
-    //     .on("mousemove", function() {
-    //         d3.select(this).style("opacity", 0.1);
-    //         tooltip.html("Labeling Text1..")
-    //             .style("top", d3.event.pageY - 20 + "px")
-    //             .style("left", d3.event.pageX + 20 + "px")
-    //             .style("opacity", .95)
-    //     }).on("mouseout", function() {
-    //         d3.select(this).style("opacity", 0);
-    //         tooltip.style("opacity", 0);
-    //     });
-
-    // var horizontalPath = scatterGroup.append("path")
-    //     .attr("d", "M" + paddingScatter[3] + "," + (height - paddingScatter[2]) + " L" +
-    //         (width - paddingScatter[1]) + "," + paddingScatter[0] + " L" +
-    //         (width - paddingScatter[1]) + "," + (height - paddingScatter[2]) + "Z")
-    //     .style("opacity", 0)
-    //     .on("mousemove", function() {
-    //         d3.select(this).style("opacity", 0.1);
-    //         tooltip.html("Labeling Text2...")
-    //             .style("top", d3.event.pageY - 20 + "px")
-    //             .style("left", d3.event.pageX + 20 + "px")
-    //             .style("opacity", .95)
-    //     }).on("mouseout", function() {
-    //         d3.select(this).style("opacity", 0);
-    //         tooltip.style("opacity", 0);
-    //     });
-
-    // var verticalBarText = scatterGroup.append("text")
-    //     .attr("x", paddingScatter[3] + 100)
-    //     .attr("y", paddingScatter[0] + 80)
-    //     .style("opacity", 0)
-    //     .attr("class", "scatterText")
-    //     .attr("text-anchor", "middle")
-    //     .text("Div Label1")
-    //     .append("tspan")
-    //     .attr("dy", "1.3em")
-    //     .attr("x", paddingScatter[3] + 100)
-    //     .text("Labeling Text3...");
-
     var bars = svg.selectAll(null)
         .data(data, function(d) {
             return d.dayNameShort;
@@ -276,29 +224,12 @@ d3.csv("data/SleepData.csv", row, function(data) {
     
    function drawBars(sleep) {
 
-   // d3.select(".tooltip").remove();
-        // horizontalPath.style("pointer-events", "none");
-
-        // verticalPath.style("pointer-events", "none");
-
         var horizontalOrVertical = sleep === "SleepQty" ? "Sleep Qty" : "Target Sleep Qty"
 
         //barTitle.text("Bar Title text...: " + horizontalOrVertical);
 
         var thisTicks = sleep === "SleepQty" ? [15, 30, 45, 60] : [20, 40, 60, 80];
 
-        // data.sort(function(a, b) {
-        //     return d3.ascending(a[sleep], b[sleep]);
-        // });
-
-        // yScale.domain([0, d3.max(data, function(d) { // yScale already defined for Sleep Qty
-        //         return d[sleep];
-        //     })])
-        //     .range([height - paddingBar[2], paddingBar[0]]);
-
-        // xScaleBar.domain(data.map(function(d) {
-        //     return d.dayNameShort;
-        // }));
 
         bars.transition()
             .duration(duration)
@@ -459,20 +390,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
             gXScatter.transition()
                 .duration(duration)
                 .style("opacity", 1);
-
-            // diagonalLine.transition()
-            //     .delay(duration)
-            //     .duration(duration)
-            //     .attr("x2", width - paddingScatter[1])
-            //     .attr("y2", paddingScatter[0])
-            //     .on("end", function() {
-            //         scatterGroup.selectAll(".scatterText")
-            //             .transition()
-            //             .duration(500)
-            //             .style("opacity", 1);
-            //         horizontalPath.style("pointer-events", "all");
-            //         verticalPath.style("pointer-events", "all");
-            //     });
 
             xAxisText.transition()
                 .duration(duration)
