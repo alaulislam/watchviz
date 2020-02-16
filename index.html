@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-     
         <link href="css/style.css" rel="stylesheet" />
 		<meta charset="UTF-8">
         <title>Info Viz</title>
@@ -19,6 +18,15 @@
 
     <body>
         <div class="container-fluid">
+            <div class="card text-center">
+                <div class="card-header bg-dark text-white">
+                    <p class="custom_header"> Selection technique for smartwatch graph visualization.</p>
+                </div>
+                <div class="card-body" style="margin-top: -11px;">
+                  <h5 class="card-title" style="font-family: 'Montserrat', sans-serif; font-weight: bold;">Smartwatch Interaction</h5>
+                </div>
+              </div>
+
             <div class="row">
                 <div class="col-sm-3">
                     <div class="watch-container">
@@ -28,26 +36,8 @@
                             <div class="watch-face">
                                 <div id="container">
                                     <div id="svgCanvas" style="margin-top: 20px; margin-left: 15px;"></div>
-                                    <div id="tooltipPosition" style="margin-top: -15px !important; "></div>
+                                    <div id="tooltipPosition" style="margin-left: 90px !important; margin-top: -10px !important;"></div>
                                 </div>
-                                
-                                <!-- <div class="watch-face-outline">
-                                    <div class="watch-face-outline-point point-12"></div>
-                                    <div class="watch-face-outline-point point-1"></div>
-                                    <div class="watch-face-outline-point point-2"></div>
-                                    <div class="watch-face-outline-point point-3"></div>
-                                    <div class="watch-face-outline-point point-4"></div>
-                                    <div class="watch-face-outline-point point-5"></div>
-                                    <div class="watch-face-outline-point point-6"></div>
-                                    <div class="watch-face-outline-point point-7"></div>
-                                    <div class="watch-face-outline-point point-8"></div>
-                                    <div class="watch-face-outline-point point-9"></div>
-                                    <div class="watch-face-outline-point point-10"></div>
-                                    <div class="watch-face-outline-point point-11"></div>
-                                </div> -->
-                
-                                <!-- <div class="watch-face-date date"></div> -->
-                
                                 <div class="watch-face-centre">
                                     <div class="watch-face-centre-inner"></div>
                                 </div>
@@ -65,7 +55,68 @@
                         <div class="watch-strap-bottom"></div>
                     </div>
                 </div>
-            </div>
+                <div class="col-md-1">
+                    <span style="visibility: visible; display: inline-block; clear: both; float: left; font-size: 200px; white-space: nowrap; text-align: center; position: relative; padding: 0px; margin: 0px 0px 0px -134px; top: 0px;"> ← </span>
+                </div>
+               
+                <div class="col-sm-6" style="margin-left: -99px;">
+                
+                    <ul>
+                        <li>
+                            <a href="#">
+                            <h2>Desktop/Laptop</h2>
+                            <span style="font-size: 10px; margin-top: 10px !important;">#1 Double click on the watch face </br>#2 <span style="font-weight: bold;"> Bar chart</span> will transform into <span style="font-weight: bold;">scatter plot</span></br>#3 <span style="font-weight: bold;">Hover</span> into the circle </br>#4 Information will be displayed according to selection.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <h2>Mobile/Tablet</h2>
+                            <span style="font-size: 10px; margin-top: 10px !important;">#1 Double tap on the watch face </br>#2 <span style="font-weight: bold;"> Bar chart</span> will transform into <span style="font-weight: bold;">scatter plot</span></br>#3 <span style="font-weight: bold;">Hover</span> into the circle </br>#4 Information will be displayed according to selection.</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                            <h2>Working on...</h2>
+                         <span style="font-size: 10px; margin-top: 10px !important;">#1 Sliding horizontally on the bars until target selection focused. </br>#2 <span style="font-weight: bold;"> With gesture/sliding up or down</span> target bar will be selected.</span></br> <span style="font-size: 10px; margin-top: 10px !important;">#3 Compare transforming into scatter plot selection with sliding selection.</span>
+                            </a>
+                        </li>  
+                    </ul>
+                </div>
+                <div class="col-sm-6">
+                  
+                    <div class="card">
+                        <div class="card-inner">
+                          <!-- <div class="header">
+                            <h2>Problem Statement</h2>
+                            <h3>Sub-Head</h2>
+                        </div> -->
+                        <div class="content">
+                          <p><span style="font-weight: bold;">What</span> the visualizations shows?</br>Here the bar charts display weekly sleep duration in hours on smartwatch screen.</p>
+                          <p><span style="font-weight: bold;">Why</span> we should care about it?</br>While the performance and display quality of smartwatches keep improving, 
+                            the size of the wearable imposes notable limits on the display and 
+                            interaction possibilities with more complex content. 
+                            In my prototype I propose a selection technique where user can transform one visualization to another form for precise selection input.</p>
+                            <p><span style="font-weight: bold;">HOW?</span></br>The instructions of the selection process is described in the sticky notes above.</p>
+                        </div>
+                          </div>
+                      </div>
+                    <div class="card">
+                        <div class="card-inner">
+                          <!-- <div class="header">
+                            <h2>Problem Statement</h2>
+                            <h3>Sub-Head</h2>
+                        </div> -->
+                        <div class="content">
+                          <p><span style="font-weight: bold;">Improvements:</span></br>Current data is simplified and constructed for easy implementation. Sleep data for 7 days is being visualized for testing purpose.
+                          Same problem will be faced if we want to interact with more than 7 days data e.g monthly data. So, the Improvement can be sliding/hovering or even displaying the feedback in dynamic relative positions.
+                          </p>
+                        </div>
+                          </div>
+                      </div>
+                  </div>
+             </div>
+           
+         
         </div>
        
 		<!-- <div id="container">

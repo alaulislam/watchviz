@@ -228,7 +228,7 @@ d3.csv("data/SleepData.csv", row, function(data) {
         .attr("width", xScaleBar.bandwidth())
         .style("fill", colours.SleepQty)
         .style("stroke", "darkslategray")
-        .style("stroke-opacity", 0);
+        .style("stroke-opacity", 0)
 
     drawBars("SleepQty");
 
@@ -429,7 +429,7 @@ d3.csv("data/SleepData.csv", row, function(data) {
         bars.on("mousemove", function(d) {
             bars.style("opacity", .2);
                     d3.select(this).style("opacity", 1);
-                    tooltip.html("Week day: " + d.dayName + "<br style=\"line-height:100%;font-size: 3px;\">Day Count: " + format(d.dayNumber)  + "<br>Sleep Hour(Qty): " + format(d.SleepQty))
+                    tooltip.html("Week day: " + d.dayName + "<br style=\"line-height:100%;font-size: 3px; \">Day Count: " + format(d.dayNumber)  + "<br>Sleep Hour(Qty): " + format(d.SleepQty))
                         .style("opacity", .95)
                 }).on("mouseout", function() {
                     bars.style("opacity", 1)
