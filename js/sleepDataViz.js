@@ -16,7 +16,7 @@ $( document ).ready(function() {
 
 var width = 250,
     height = 200;
- 
+
 var barFlag = true;
 
 var paddingBar = [40, 110, 50, 140];
@@ -26,7 +26,7 @@ var paddingScatter = [10, 300, 40, 300];
 
 var svg = d3.select("#svgCanvas")
     .append("svg")
-    .attr("width", width) 
+    .attr("width", width)
     .attr("height", height)
     .attr("align","center");
 
@@ -37,7 +37,7 @@ var svg = d3.select("#svgCanvas")
     .attr("align","center");
 
 var colours = {
-    SleepQty: "#4694FF",
+    barColor: "#4694FF",
     scatter: "#ffd92f"
 };
 
@@ -65,18 +65,16 @@ d3.csv("data/SleepData.csv", row, function(data) {
         .domain([0, d3.max(data, function(d) {
             return d.SleepQty;
         })])
-        //.range([100, 10]); 
        .range([height - paddingBar[2], paddingBar[0]]); // height = 450  ,  paddingBar[2] = 50, paddingBar[0] = 40
 
     var xScaleBar = d3.scaleBand() // bar chart bar width
         .domain(dayNameShort)
-     //.range([paddingBar[3], width - paddingBar[1]])   //var paddingBar = [40, 110, 50, 140];
-        .range([0, width]) // followed by xScaleScatter Range
+        .range([0, width]) 
         .padding(0.2);
 
-    var xScaleScatter = d3.scaleLinear() //var paddingScatter = [10, 300, 40, 300];
-        .domain([minScatter, maxScatter])
-        .range([paddingScatter[3], width - paddingScatter[1]]);
+    // var xScaleScatter = d3.scaleLinear() //var paddingScatter = [10, 300, 40, 300];
+    //     .domain([minScatter, maxScatter])
+    //     .range([paddingScatter[3], width - paddingScatter[1]]);
 
     var radiusScale = d3.scaleSqrt() // scatter point size
         .domain([0, d3.max(data, function(d) {
@@ -89,7 +87,7 @@ d3.csv("data/SleepData.csv", row, function(data) {
     var xAxisScatter = d3.axisBottom(xScaleBar); // No need xScaleScatter, because same weekdays name for both bar & scatter
 
     var yAxis = d3.axisLeft(yScale)
-        .tickValues([10, 300, 40, 300])
+        .tickValues([2, 4, 6, 8, 10])
         .tickSizeInner(-(width - paddingBar[1] - paddingBar[3]));
 
     var duration = 1500;
@@ -100,7 +98,7 @@ d3.csv("data/SleepData.csv", row, function(data) {
         d.radius = radiusScale(d.dayNumber); // circle will be small or big depending on the day number sequence
     });
 
-    var gXBar = svg.append("g")
+    var gXBar = svg.append("g") // x- axis for weekdays
         .attr("class", "xAxis xAxisBar")
         .attr("transform", "translate(0," + (height - paddingBar[2]) + ")");
 
@@ -118,9 +116,10 @@ d3.csv("data/SleepData.csv", row, function(data) {
 
     var gY = svg.append("g")
         .attr("class", "yAxis")
-        .attr("transform", "translate(" + paddingBar[3] + ",0)");
+        .attr("transform", "translate(" + 100+ ",0)");
 
     //gY.call(yAxis);
+
 
     var barTitle = svg.append("text")
         .attr("x", paddingBar[3] + (width - paddingBar[3] - paddingBar[1]) / 2)
@@ -128,6 +127,13 @@ d3.csv("data/SleepData.csv", row, function(data) {
         .attr("class", "barTitle")
         .style("text-anchor", "middle")
         .text("");
+        // .text(function(d) { 
+        //     data.forEach(function(d) {
+        //         var dayNo = d.dayNumber; 
+        //         alert(dayNo);
+        //         return dayNo; 
+        //     });
+        // })
 
     var xAxisText = svg.append("text")
         .attr("class", "axisText")
@@ -162,26 +168,26 @@ d3.csv("data/SleepData.csv", row, function(data) {
         .style("stroke-dasharray", "6,6")
         .style("stroke", "#aaa");
 
-    var bars = svg.selectAll(null)
+    var bars = svg.selectAll("#svgCanvas")
         .data(data, function(d) {
             return d.dayNameShort;
         })
         .enter()
         .append("rect")
         .attr("x", function(d) {
-            return xScaleBar(d.dayNameShort)
+            return xScaleBar(d.dayNameShort);
         })
         .attr("y", height - paddingBar[2])
         .attr("height", 0)
         .attr("width", xScaleBar.bandwidth())
-        .style("fill", colours.SleepQty)
+        .style("fill", colours.barColor)
         .style("stroke", "darkslategray")
-        .style("stroke-opacity", 0)
-
-    drawBars("SleepQty");
+        .style("stroke-opacity", 0);
+        
+    drawBars();
 
     d3.select("#barSleepQty").on("click", function() {
-        drawBars("SleepQty");
+        drawBars();
     });
 
     d3.select("#scatter").on("click", function() {
@@ -192,44 +198,44 @@ d3.csv("data/SleepData.csv", row, function(data) {
     //     alert( "Handler for called." );
     //   });
 
-    d3.select("#container").on("dblclick",function(d){  
+    d3.select("#container").on("dblclick",function(d){
         if(!barFlag){
-            drawScatter(); 
+            drawScatter();
             barFlag = true;
         }else {
-            drawBars("SleepQty");
+            drawBars();
             barFlag = false;
         }
     });
     // d3.select("div").dblTap(function() {
     //     alert("Double tap!");
     //   });
-    svg.dblTap(function() {
-        console.log('double tap activated');
-        if(!barFlag){
-            drawScatter(); 
-            barFlag = true;
-        }else {
-            drawBars("SleepQty");
-            barFlag = false;
-        }
-      });
+
+
+    // svg.dblTap(function() {
+    //     console.log('double tap activated');
+    //     if(!barFlag){
+    //         drawScatter();
+    //         barFlag = true;
+    //     }else {
+    //         drawBars();
+    //         barFlag = false;
+    //     }
+    //   });
+
+
     //   svg.on('swipe', function(e, Dx, Dy){
-    //     var side = (Dx < 0) ? 'left' : (Dx > 0) ? 'right' : (Dy > 0) ? '↑' : (Dy < 0) ? '↓' : '?'; 
+    //     var side = (Dx < 0) ? 'left' : (Dx > 0) ? 'right' : (Dy > 0) ? '↑' : (Dy < 0) ? '↓' : '?';
     //     // $(this).html('<span>' + side + '</span>');
     //     alert(side);
     //   });
 
 
-    
-   function drawBars(sleep) {
 
-        var horizontalOrVertical = sleep === "SleepQty" ? "Sleep Qty" : "Target Sleep Qty"
+   function drawBars() {
+    d3.select("#barTextLabel").remove();
 
-        //barTitle.text("Bar Title text...: " + horizontalOrVertical);
-
-        var thisTicks = sleep === "SleepQty" ? [15, 30, 45, 60] : [20, 40, 60, 80];
-
+        var thisTicks = [2, 4, 6, 8, 10];
 
         bars.transition()
             .duration(duration)
@@ -237,17 +243,30 @@ d3.csv("data/SleepData.csv", row, function(data) {
             .attr("ry", 0)
 
             .attr("x", function(d) {
-                return xScaleBar(d.dayNameShort)
+                return xScaleBar(d.dayNameShort);
             })
             .attr("y", function(d) {
-                return yScale(d[sleep])
+               return yScale(d.SleepQty);
             })
             .attr("height", function(d) {
-                return height - paddingBar[2] - yScale(d[sleep])
+                return height - paddingBar[2] - yScale(d.SleepQty)
             })
             .attr("width", xScaleBar.bandwidth())
-            .style("fill", colours[sleep])
+            .style("fill", colours.barColor)
             .style("stroke-opacity", 0);
+
+            svg.append("g")
+            .attr('class', 'bar-label')
+            .attr("id", "barTextLabel")
+            .selectAll("text")
+            .data(data)
+            .enter()
+            .append("text")
+            .text(d => d.SleepQty +'h')
+            .attr("fill","black")
+            .attr("text-anchor", "middle")
+            .attr("y", function(d) { return yScale(d.SleepQty) + 17; })
+            .attr('x', function(d) { return xScaleBar(d.dayNameShort) + xScaleBar.bandwidth() / 2; });
 
         // bars.on("mousemove", function(d) {
         //     bars.style("opacity", .3);
@@ -341,12 +360,6 @@ d3.csv("data/SleepData.csv", row, function(data) {
             .attr("ry", function(d) {
                 return d.radius / 2;
             })
-            // .attr("y", function(d) {
-            //     return yScale(d.SleepQty) - d.radius / 2;
-            // })
-            // .attr("x", function(d) {  // exact position for 
-            //     return xScaleScatter(d.SleepQty) - d.radius / 2;
-            // })
             .attr("height", function(d) {
                 return d.radius + 10;
             })
@@ -367,8 +380,8 @@ d3.csv("data/SleepData.csv", row, function(data) {
                     tooltip.style("opacity", 0)
                 })
 
-        bars.on("dblclick",function(d){  
-            
+        bars.on("dblclick",function(d){
+
         alert('do something')
           //showInformation(bars,tooltip);
         });
