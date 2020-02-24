@@ -212,16 +212,16 @@ d3.csv("data/SleepData.csv", row, function(data) {
     //   });
 
 
-    // svg.dblTap(function() {
-    //     console.log('double tap activated');
-    //     if(!barFlag){
-    //         drawScatter();
-    //         barFlag = true;
-    //     }else {
-    //         drawBars();
-    //         barFlag = false;
-    //     }
-    //   });
+    svg.dblTap(function() {
+        // console.log('double tap activated');
+        if(!barFlag){
+            drawScatter();
+            barFlag = true;
+        }else {
+            drawBars();
+            barFlag = false;
+        }
+      });
 
 
     //   svg.on('swipe', function(e, Dx, Dy){
