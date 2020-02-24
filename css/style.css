@@ -320,7 +320,7 @@ ul li a:hover,ul li a:focus{
   box-sizing: border-box;
   margin-top:10px;
   margin-bottom:10px;
-  background-color:#FFF;
+  /* background-color:#FFF; */
 }
 
 .card:hover {
@@ -347,3 +347,29 @@ ul li a:hover,ul li a:focus{
 	font-size: 24px;
 	color: rgb(48, 63, 54);
 }
+
+
+/* digital watch font */
+@font-face {
+	font-family: 'Orbitron';
+    src: url("fonts/Orbitron.woff") format('woff');
+}
+
+/* @font-face {
+    font-family: "myfont";
+    src: url("fonts/awesome-font-bold.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "myfont";
+    src: url("fonts/awesome-font-boldoblique.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "myfont";
+    src: url("fonts/awesome-font-oblique.woff") format('woff');
+    font-style: italic;
+} */

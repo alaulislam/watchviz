@@ -4,7 +4,7 @@ var sliderSimple = d3
 .min(0)
 .max(20)
 .step(1)
-.width(190)
+.width(100)
 .displayValue(false)
 .ticks(0)
 .default(0.015)
@@ -30,7 +30,7 @@ var sliderSimple = d3
 var gSimple = d3
 .select('div#slider')
 .append('svg')
-.attr('width', 500)
+.attr('width', 150)
 .attr('height', 100)
 .append('g')
 .attr('transform', 'translate(30,30)');
@@ -38,7 +38,25 @@ var gSimple = d3
 gSimple.call(sliderSimple);
 
 d3.select('div#slider').on("dblclick",function(d){
-	console.log(token);
+	d3.csv("data/SleepData2.csv", row, function(data) {
+		var filteredData = data.filter(function(d){ 
+			if( d["dayNumber"] == token )
+			{ 
+				return d;
+			} 
+		})
+		if(filteredData[0].dayNumber == token)
+		{
+			//console.log(filteredData[0].dayName);
+			// $('#tooltipPosition2').show();
+
+			//d3.select('div#info_section').style.color = 'blue';
+			d3.select('div#info_section').html("Week day: " + filteredData[0].dayName + "<br style=\"line-height:100%;font-size: 3px; \">Day Count: " + format(filteredData[0].dayNumber)  + "<br>Sleep Hour(Qty): " + format(filteredData[0].SleepQty))
+		}
+	
+		
+	});
+	
 		// $('#tooltipPosition2').show();
 		// tooltip_v2.html("Week day: " + d.dayName + "<br style=\"line-height:100%;font-size: 3px; \">Day Count: " + format(d.dayNumber)  + "<br>Sleep Hour(Qty): " + format(d.SleepQty))
 		
@@ -46,4 +64,9 @@ d3.select('div#slider').on("dblclick",function(d){
 	//         .style("opacity", .95)
 
 });
+function row(d) {
+	d.SleepQty = +d.SleepQty;
+	d.dayNumber = +d.dayNumber;
+	return d;
+}
 

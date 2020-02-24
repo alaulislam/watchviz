@@ -209,11 +209,10 @@ d3.csv("data/SleepData2.csv", row, function(data) {
         bar_v2.on("mousemove", function(d) {
             bar_v2.style("opacity", .2);
                     d3.select(this).style("opacity", 1);
-                    tooltip_v2.html("Week day: " + d.dayName + "<br style=\"line-height:100%;font-size: 3px; \">Day Count: " + format(d.dayNumber)  + "<br>Sleep Hour(Qty): " + format(d.SleepQty))
+                    d3.select('div#info_section').html("Week day: " + d.dayName + "<br style=\"line-height:100%;font-size: 3px; \">Day Count: " + format(d.dayNumber)  + "<br>Sleep Hour(Qty): " + format(d.SleepQty))
                         .style("opacity", .95)
                 }).on("mouseout", function() {
                     bar_v2.style("opacity", 1)
-                    tooltip_v2.style("opacity", 0)
                 })
 
         chart.selectAll(".xAxisBar .tick").each(function(d) {
