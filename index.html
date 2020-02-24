@@ -4,16 +4,17 @@
         <title>Info Viz</title>
         <link href="css/style.css" rel="stylesheet" />
         <link href="css/montserrat-font-family-styles.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/bootstrap.min.css" >
         <script src="plugin/jquery-3.4.1.min.js"></script>
         <script src="plugin/d3.v4.min.js"></script>
         <script src="plugin/jquery.touch.js"></script>
-        <link rel="stylesheet" href="css/bootstrap.min.css" >
+        <script src="plugin/d3-simple-slider.js"></script>
+       
         <link rel="icon" type="image/png" sizes="32x32" href="img/ms-icon-70x70.png">
         <meta name="msapplication-TileColor" content="#ffffff">
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <meta charset="UTF-8">
-
 	</head>
 
     <body>
@@ -59,7 +60,7 @@
                     <span style="visibility: visible; display: inline-block; clear: both; float: left; font-size: 200px; white-space: nowrap; text-align: center; position: relative; padding: 0px; margin: 0px 0px 0px -134px; top: 0px;"> ← </span>
                 </div>
                
-                <div class="col-sm-6" style="margin-left: -99px;">
+                <div class="col-sm-5" style="margin-left: -99px;">
                 
                     <ul>
                         <li>
@@ -74,45 +75,93 @@
                             <span style="font-size: 10px; margin-top: 10px !important;">#1 Double tap on the watch face </br>#2 <span style="font-weight: bold;"> Bar chart</span> will transform into <span style="font-weight: bold;">scatter plot</span></br>#3 <span style="font-weight: bold;">Hover</span> into the circle </br>#4 Information will be displayed according to selection.</span>
                             </a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#">
                             <h2>Working on...</h2>
                          <span style="font-size: 10px; margin-top: 10px !important;">#1 Sliding horizontally on the bars until target selection focused. </br>#2 <span style="font-weight: bold;"> With gesture/sliding up or down</span> target bar will be selected.</span></br> <span style="font-size: 10px; margin-top: 10px !important;">#3 Compare transforming into scatter plot selection with sliding selection.</span>
                             </a>
-                        </li>  
+                        </li>   -->
                     </ul>
-                </div>
-                <div class="col-sm-6">
-                  
-                    <div class="card">
-                        <div class="card-inner">
 
-                        <div class="content">
-                          <p><span style="font-weight: bold;">What</span> the visualizations shows?</br>Here the bar charts display weekly sleep duration in hours on smartwatch screen.</p>
-                          <p><span style="font-weight: bold;">Why</span> we should care about it?</br>While the performance and display quality of smartwatches keep improving, 
-                            the size of the wearable imposes notable limits on the display and 
-                            interaction possibilities with more complex content. 
-                            In this prototype I propose a selection technique where user can transform one visualization to another form for precise selection input.</p>
-                            <p><span style="font-weight: bold;">HOW?</span></br>The instructions of the selection process is described in the sticky notes above.</p>
-                        </div>
+                    <div class="col-sm-12">
+                  
+                        <div class="card">
+                            <div class="card-inner">
+    
+                            <div class="content">
+                              <p><span style="font-weight: bold;">What</span> the visualizations shows?</br>Here the bar charts display weekly sleep duration in hours on smartwatch screen.</p>
+                              <p><span style="font-weight: bold;">Why</span> we should care about it?</br>While the performance and display quality of smartwatches keep improving, 
+                                the size of the wearable imposes notable limits on the display and 
+                                interaction possibilities with more complex content. 
+                                In this prototype I propose a selection technique where user can transform one visualization to another form for precise selection input.</p>
+                                <p><span style="font-weight: bold;">HOW?</span></br>The instructions of the selection process is described in the sticky notes above.</p>
+                            </div>
+                              </div>
+                          </div>
+                        <div class="card">
+                            <div class="card-inner">
+                            <div class="content">
+                              <p><span style="font-weight: bold;">Improvements:</span></br>Current data is simplified and constructed for easy implementation. Sleep data for 7 days is being visualized for testing purpose.
+                              Same problem will be faced if we want to interact with more than 7 days data e.g monthly data. So, the Improvement can be sliding/hovering or even displaying the feedback in dynamic relative positions.
+                              </p>
+                            </div>
+                              </div>
                           </div>
                       </div>
-                    <div class="card">
-                        <div class="card-inner">
-                        <div class="content">
-                          <p><span style="font-weight: bold;">Improvements:</span></br>Current data is simplified and constructed for easy implementation. Sleep data for 7 days is being visualized for testing purpose.
-                          Same problem will be faced if we want to interact with more than 7 days data e.g monthly data. So, the Improvement can be sliding/hovering or even displaying the feedback in dynamic relative positions.
-                          </p>
+
+                </div>
+
+                <div class="col-sm-3">
+                    <div class="watch-container">
+                        <div class="watch-strap-top"></div>
+                
+                        <div class="watch">
+                            <div class="watch-face">
+                                
+                                <div id="container2">
+                                    <div id="svgCanvas2" style="margin-top: 20px; margin-left: 15px;"></div>
+
+                                    <div class="slider_div">
+                                        <div id="slider" style="margin-top: -28px;margin-left: 13px;"></div>
+                                    </div>
+                                    <div id="tooltipPosition2" style="margin-left: 20px !important; margin-top: -20px !important;"></div>
+                                    <!-- <input type="range" min="0" max="21" value="1" id="xvalue" style="margin-top: -28px;margin-left: 13px;"> -->
+                                 
+                                   
+                                </div>
+                                <!-- <div class="watch-face-centre">
+                                    <div class="watch-face-centre-inner"></div>
+                                </div> -->
+                
+                                <!-- <div class="watch-face-hands">
+
+                                    <div class="watch-face-hand hour"></div>
+                                    <div class="watch-face-hand minute"></div>
+                                    <div class="watch-face-hand second"></div>
+                                </div> -->
+                             <!-- <div id="slider"></div> -->
+                            </div>
+                
+                            <div class="watch-crown"></div>
+                        
                         </div>
-                          </div>
-                      </div>
-                  </div>
+                      
+                        <div class="watch-strap-bottom"></div>
+                        
+                    </div>
+                </div>
+
              </div>
            
          
         </div>
-         <script src="js/sleepDataViz.js"></script>
+        <script src="js/sleepDataViz.js"></script>
         <script src="js/watch-active.js"></script>
+        <script src="js/sleepDataViz_v2.js"></script>
+        <script src="js/slider.js"></script>
+        <script>
+            $('#tooltipPosition2').hide();
+        </script>
     </body>
     
 </html>

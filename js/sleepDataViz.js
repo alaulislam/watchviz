@@ -345,6 +345,8 @@ d3.csv("data/SleepData.csv", row, function(data) {
     }
 
     function drawScatter() {
+
+        d3.select("#barTextLabel").attr("fill","white")
         yScale.domain([minScatter, maxScatter])
             .range([height - paddingScatter[2], paddingScatter[0]]);
 
