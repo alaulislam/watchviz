@@ -21,5 +21,5 @@ $(document).ready(function() {
 	}
 
 	// Get new time every 50ms
-	setInterval(watch, 50);
+	setInterval(watch, 1000);
 });

@@ -198,7 +198,7 @@ d3.csv("data/SleepData.csv", row, function(data) {
     //     alert( "Handler for called." );
     //   });
 
-    d3.select("#container_left_watch").on("dblclick",function(d){
+    d3.select("#container").on("dblclick",function(d){
         if(!barFlag){
             drawScatter();
             barFlag = true;
@@ -212,7 +212,7 @@ d3.csv("data/SleepData.csv", row, function(data) {
     //   });
 
 
-    d3.select("#container_left_watch").dblTap(function() {
+    svg.dblTap(function() {
         // console.log('double tap activated');
         if(!barFlag){
             drawScatter();

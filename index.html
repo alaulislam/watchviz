@@ -17,109 +17,6 @@
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
         <meta charset="UTF-8">
-        <style>
-
-.card-container
-{
-    background: #eee;
-    font-family: 'Open Sans', sans serif;
-    font-size: 12px;
-    font-weight: bold;
-    width: 150px;
-    height: 65px;
-    margin: 80px auto;
-    border-radius: 10px;
-    perspective: 1400px;
-}
-
-.card
-{
-    position: relative;
-    height: 100%;
-    border-radius: 10px;
-    width: 100%;
-    transform-style: preserve-3d;
-}
-
-.front,
-.back
-{
-    display: flex;
-
-    width: 100%;
-    height: 100%;
-
-    border-radius: 10px;
-
-    justify-content: center;
-    align-items: center;
-    backface-visibility: hidden;
-}
-
-.front
-{
-    color: #fff;
-    background: #2196f3;
-}
-
-.back
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    transform: rotateY(180deg);
-
-    color: #000000;
-    /* background: #fff; */
-
-    background: linear-gradient(90deg, #ffde00 34%, #e8ff99 83%);
-    border: none;
-    /* box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(0, 0, 0, 0.3); */
-    
-}
-
-
-/* digital clock */
-.tabBlock
-        {
-            /* background-color:#57574f;
-            border:solid 0px #FFA54F; 
-            border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
-            max-width:200px;
-            width:100%;
-            overflow:hidden;
-            display:block;*/
-            backface-visibility: hidden;
-            position: absolute;
-     top: 50%;
-     /* left: 48%; */
-     transform: translateX(-50%) translateY(-50%);
-     color: #ffffff;
-     font-size: 12px;
-     font-family: Orbitron;
-     letter-spacing: 5px;
-     margin-left: 78px;
-     margin-top: 10px;
-        }
-        .clock
-        {
-            vertical-align:middle;
-            font-family:Orbitron;
-            font-size:12px;
-            font-weight:normal;
-            color:#FFF;
-            padding:0 10px;
-        }
-        .clocklg 
-        {
-            vertical-align:middle; 
-            font-family:Orbitron;
-            font-size:12px;
-            font-weight:normal;
-            color:#FFF;
-        }
-        </style>
 	</head>
 
     <body>
@@ -140,7 +37,7 @@
                 
                         <div class="watch">
                             <div class="watch-face">
-                                <div id="container_left_watch">
+                                <div id="container">
                                     <div id="svgCanvas" style="margin-top: 20px; margin-left: 15px;"></div>
                                     <div id="tooltipPosition" style="margin-left: 90px !important; margin-top: -10px !important;"></div>
                                 </div>
@@ -161,38 +58,36 @@
                         <div class="watch-strap-bottom"></div>
                     </div>
                 </div>
-                <div class="col-md-1">
+                <!-- <div class="col-md-1">
                     <span style="visibility: visible; display: inline-block; clear: both; font-size: 200px; white-space: nowrap; text-align: center; position: relative; padding: 0px; margin: 0px 0px 0px -134px; top: 0px;"> ← </span>
-                </div>
+                </div> -->
                
-                <div class="col-sm-5" style="margin-left: -99px;">
-                
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
                     <ul>
+                        <div class="col-sm-6">
                         <li>
                             <a href="#">
                             <h2>Desktop/Laptop</h2>
                             <span style="font-size: 10px; margin-top: 10px !important;">#1 Double click on the watch face </br>#2 <span style="font-weight: bold;"> Bar chart</span> will transform into <span style="font-weight: bold;">scatter plot</span></br>#3 <span style="font-weight: bold;">Hover</span> into the circle </br>#4 Information will be displayed according to selection.</span>
                             </a>
                         </li>
+                        </div>
+                        <div class="col-sm-6">
                         <li>
                             <a href="#">
                             <h2>Mobile/Tablet</h2>
                             <span style="font-size: 10px; margin-top: 10px !important;">#1 Double tap on the watch face </br>#2 <span style="font-weight: bold;"> Bar chart</span> will transform into <span style="font-weight: bold;">scatter plot</span></br>#3 <span style="font-weight: bold;">Hover</span> into the circle </br>#4 Information will be displayed according to selection.</span>
                             </a>
                         </li>
-                        <!-- <li>
-                            <a href="#">
-                            <h2>Working on...</h2>
-                         <span style="font-size: 10px; margin-top: 10px !important;">#1 Sliding horizontally on the bars until target selection focused. </br>#2 <span style="font-weight: bold;"> With gesture/sliding up or down</span> target bar will be selected.</span></br> <span style="font-size: 10px; margin-top: 10px !important;">#3 Compare transforming into scatter plot selection with sliding selection.</span>
-                            </a>
-                        </li>   -->
+                        </div>
                     </ul>
-
+                    </div>
                     <div class="col-sm-12">
                   
                         <div class="card">
                             <div class="card-inner">
-    
+        
                             <div class="content">
                               <p><span style="font-weight: bold;">What</span> the visualizations shows?</br>Here the bar charts display weekly sleep duration in hours on smartwatch screen.</p>
                               <p><span style="font-weight: bold;">Why</span> we should care about it?</br>While the performance and display quality of smartwatches keep improving, 
@@ -213,7 +108,6 @@
                               </div>
                           </div>
                       </div>
-
                 </div>
 
                 <div class="col-sm-3">
@@ -289,11 +183,15 @@
                 </div>
 
              </div>
+             
+            
+
            
          
         </div>
         <script src="js/sleepDataViz.js"></script>
         <script src="js/watch-active.js"></script>
+        <script src="js/digital-watch.js"></script>
         <script src="js/sleepDataViz_v2.js"></script>
         <script src="js/slider.js"></script>
         <script>
@@ -318,38 +216,7 @@
             });
             });
 
-            window.onload = digitized();
-            function digitized() {
-            var dt = new Date();    // DATE() CONSTRUCTOR FOR CURRENT SYSTEM DATE AND TIME.
-            var hrs = dt.getHours();
-            var min = dt.getMinutes();
-            var sec = dt.getSeconds();
-
-            min = Ticking(min);
-            sec = Ticking(sec);
-
-            document.getElementById('dc').innerHTML = hrs + ":" + min;
-            document.getElementById('dc_second').innerHTML = sec;
-
-            if (hrs > 12) { 
-                document.getElementById('dc_hour').innerHTML = 'PM'; 
-            }
-            else { 
-                document.getElementById('dc_hour').innerHTML = 'AM'; 
-            }
-
-            // CALL THE FUNCTION EVERY 1 SECOND (RECURSION).
-            var time
-            time = setInterval('digitized()', 1000);
-        }
-
-        function Ticking(ticVal) {
-            if (ticVal < 10) {
-                ticVal = "0" + ticVal;
-            }
-            return ticVal;
-        }
-
+          
         </script>
     </body>
     

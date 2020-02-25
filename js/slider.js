@@ -51,7 +51,7 @@ d3.select('div#slider').on("dblclick",function(d){
 			// $('#tooltipPosition2').show();
 
 			//d3.select('div#info_section').style.color = 'blue';
-			d3.select('div#info_section').html("Week day: " + filteredData[0].dayName + "<br style=\"line-height:100%;font-size: 3px; \">Day Count: " + format(filteredData[0].dayNumber)  + "<br>Sleep Hour(Qty): " + format(filteredData[0].SleepQty))
+			d3.select('div#info_section').html("" + filteredData[0].dayName + ", &nbsp;Day: " + format(filteredData[0].dayNumber)  + "<br>Sleep(Qty): " + format(filteredData[0].SleepQty)+ " hrs<br>Avg. Sleep: 6.5 hrs")
 		}
 	
 		

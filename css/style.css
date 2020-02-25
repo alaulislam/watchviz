@@ -274,9 +274,9 @@ ul li p{
 	font-size:180%;
 }
 ul li:nth-child(even) a{
-	-o-transform:rotate(4deg);
-	-webkit-transform:rotate(4deg);
-	-moz-transform:rotate(4deg);
+	-o-transform:rotate(6deg);
+	-webkit-transform:rotate(6deg);
+	-moz-transform:rotate(6deg);
 	position:relative;
 	background:#f6ff7a;
 	
@@ -355,21 +355,106 @@ ul li a:hover,ul li a:focus{
     src: url("fonts/Orbitron.woff") format('woff');
 }
 
-/* @font-face {
-    font-family: "myfont";
-    src: url("fonts/awesome-font-bold.woff") format('woff');
+
+/*  Right watch card for slider & Info display */
+.card-container
+{
+    background: #eee;
+    font-family: 'Open Sans', sans serif;
+    font-size: 12px;
     font-weight: bold;
+    width: 150px;
+    height: 65px;
+    margin: 80px auto;
+    border-radius: 10px;
+    perspective: 1400px;
 }
 
-@font-face {
-    font-family: "myfont";
-    src: url("fonts/awesome-font-boldoblique.woff") format('woff');
-    font-weight: bold;
-    font-style: italic;
+.card
+{
+    position: relative;
+    height: 100%;
+    border-radius: 10px;
+    width: 100%;
+    transform-style: preserve-3d;
 }
 
-@font-face {
-    font-family: "myfont";
-    src: url("fonts/awesome-font-oblique.woff") format('woff');
-    font-style: italic;
-} */
+.front,
+.back
+{
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 10px;
+
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.front
+{
+    color: #fff;
+    background: #2196f3;
+}
+
+.back
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: rotateY(180deg);
+
+    color: #000000;
+    /* background: #fff; */
+
+    background: linear-gradient(90deg, #ffde00 34%, #e8ff99 83%);
+    border: none;
+    /* box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5), 1px 1px 2px rgba(0, 0, 0, 0.3); */
+    
+}
+
+
+
+/* digital clock */
+.tabBlock
+        {
+            /* background-color:#57574f;
+            border:solid 0px #FFA54F; 
+            border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+            max-width:200px;
+            width:100%;
+            overflow:hidden;
+            display:block;*/
+            backface-visibility: hidden;
+            position: absolute;
+     top: 50%;
+     /* left: 48%; */
+     transform: translateX(-50%) translateY(-50%);
+     color: #ffffff;
+     font-size: 12px;
+     font-family: Orbitron;
+     letter-spacing: 5px;
+     margin-left: 78px;
+     margin-top: 10px;
+        }
+        .clock
+        {
+            vertical-align:middle;
+            font-family:Orbitron;
+            font-size:12px;
+            font-weight:normal;
+            color:#FFF;
+            padding:0 10px;
+        }
+        .clocklg 
+        {
+            vertical-align:middle; 
+            font-family:Orbitron;
+            font-size:12px;
+            font-weight:normal;
+            color:#FFF;
+        }
